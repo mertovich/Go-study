@@ -5,3 +5,7 @@ import "fmt"
 func IncorrectEntry() {
 	fmt.Println(`incorrect entry`)
 }
+
+func ParkingLotFull(location string) {
+	fmt.Println(`Parking lot full `,location)
+}
