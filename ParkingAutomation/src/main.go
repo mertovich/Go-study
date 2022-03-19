@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"parking/src/car"
 	"parking/src/errors"
+	"parking/src/parking_controller"
 )
 
 func main() {
@@ -31,8 +32,15 @@ L:
 			fmt.Scan(&numberPlate)
 			fmt.Print(`Car location: `)
 			fmt.Scan(&carLocation)
-			c := car.Car{numberPlate, carLocation}
-			car.Add(c)
+			// parking chech
+			parkingcheck := parking_controller.Check(carLocation)
+			if parkingcheck == false {
+				c := car.Car{numberPlate, carLocation}
+				car.Add(c)
+				parking_controller.Add(carLocation)
+			} else {
+				errors.ParkingLotFull(carLocation)
+			}
 		case `2`:
 			fmt.Println(`Case 2`)
 			break L
