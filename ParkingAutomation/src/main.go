@@ -16,9 +16,9 @@ L:
 		// menu
 		fmt.Println(`[1] Register`)
 		fmt.Println(`[2] Search`)
-		fmt.Println(`[3] All Records`)
-		fmt.Println(`[4] Exit`)
-		fmt.Print(`Choice: `)
+		fmt.Println(`[3] All Parking List`)
+		fmt.Println(`[4] Remove Parking `)
+		fmt.Println(`[5] Exit`)
 		fmt.Scan(&choice)
 
 		// menu func
@@ -48,6 +48,12 @@ L:
 			fmt.Println(`Case 3`)
 			car.GetAllList()
 		case `4`:
+			fmt.Println(`Case 4`)
+			location := ``
+			fmt.Print(`vacated location: `)
+			fmt.Scan(&location)
+			parking_controller.Delete(location)
+		case `5`:
 			fmt.Println(`Exit`)
 			break L
 		default:
