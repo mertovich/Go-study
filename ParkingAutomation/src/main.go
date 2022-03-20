@@ -9,22 +9,20 @@ import (
 
 func main() {
 	fmt.Println(`--- Start ---`)
-
 L:
 	for true {
 		var choice string
 		// menu
 		fmt.Println(`[1] Register`)
-		fmt.Println(`[2] Search`)
-		fmt.Println(`[3] All Parking List`)
-		fmt.Println(`[4] Remove Parking `)
-		fmt.Println(`[5] Exit`)
+		fmt.Println(`[2] Searc By Plate`)
+		fmt.Println(`[3 Search By Location`)
+		fmt.Println(`[4] All Parking List`)
+		fmt.Println(`[5] Remove Parking `)
+		fmt.Println(`[6] Exit`)
 		fmt.Scan(&choice)
-
 		// menu func
 		switch choice {
 		case `1`:
-			fmt.Println(`Case 1`)
 			// read value
 			numberPlate := ``
 			carLocation := ``
@@ -42,18 +40,28 @@ L:
 				errors.ParkingLotFull(carLocation)
 			}
 		case `2`:
-			fmt.Println(`Case 2`)
-			break L
+			// Plate to search
+			carPlate := ``
+			fmt.Print(`Plate to search :`)
+			fmt.Scan(&carPlate)
+			car.SearchByPlate(carPlate)
 		case `3`:
-			fmt.Println(`Case 3`)
-			car.GetAllList()
+			// Location to search
+			carLocation := ``
+			fmt.Print(`Location to search :`)
+			fmt.Scan(&carLocation)
+			car.SearchByLocation(carLocation)
 		case `4`:
-			fmt.Println(`Case 4`)
+			// Get all car list
+			car.GetAllList()
+		case `5`:
+			// Vacated location
 			location := ``
 			fmt.Print(`vacated location: `)
 			fmt.Scan(&location)
 			parking_controller.Delete(location)
-		case `5`:
+		case `6`:
+			// exit
 			fmt.Println(`Exit`)
 			break L
 		default:

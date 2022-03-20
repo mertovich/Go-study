@@ -19,3 +19,26 @@ func GetAllList() {
 		fmt.Println(`Plate: `,car.Number_plate,`Location: `,car.Car_location)
 	}
 }
+
+func SearchByPlate(plate string) {
+	tmpCar := Car{}
+	for _,item := range CarList {
+		if item.Number_plate == plate {
+			tmpCar.Car_location = item.Car_location
+			tmpCar.Number_plate = item.Number_plate
+		}
+	}
+	fmt.Println(`Plate: `,tmpCar.Number_plate,`Location: `,tmpCar.Car_location)
+}
+
+func SearchByLocation(location string) {
+	tmpCar := Car{}
+	for _,item := range CarList {
+		if item.Number_plate == location {
+			tmpCar.Car_location = item.Car_location
+			tmpCar.Number_plate = item.Number_plate
+		}
+	}
+	fmt.Println(`Plate: `,tmpCar.Number_plate,`Location: `,tmpCar.Car_location)
+
+}
