@@ -9,3 +9,7 @@ func IncorrectEntry() {
 func ParkingLotFull(location string) {
 	fmt.Println(`Parking lot full `,location)
 }
+
+func RegisterNull() {
+	fmt.Println(`Register null`)
+}

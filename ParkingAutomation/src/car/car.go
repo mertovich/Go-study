@@ -1,6 +1,9 @@
 package car
 
-import "fmt"
+import (
+	"fmt"
+	"parking/src/errors"
+)
 
 type Car struct {
 	Number_plate string
@@ -28,7 +31,11 @@ func SearchByPlate(plate string) {
 			tmpCar.Number_plate = item.Number_plate
 		}
 	}
-	fmt.Println(`Plate: `,tmpCar.Number_plate,`Location: `,tmpCar.Car_location)
+	if tmpCar.Car_location != `` && tmpCar.Number_plate != ``{
+		fmt.Println(`Plate: `,tmpCar.Number_plate,`Location: `,tmpCar.Car_location)
+	} else {
+		errors.RegisterNull()
+	}
 }
 
 func SearchByLocation(location string) {
@@ -39,6 +46,9 @@ func SearchByLocation(location string) {
 			tmpCar.Number_plate = item.Number_plate
 		}
 	}
-	fmt.Println(`Plate: `,tmpCar.Number_plate,`Location: `,tmpCar.Car_location)
-
+	if tmpCar.Car_location != `` &&  tmpCar.Number_plate != `` {
+		fmt.Println(`Plate: `,tmpCar.Number_plate,`Location: `,tmpCar.Car_location)
+	} else {
+		errors.RegisterNull()
+	}
 }
